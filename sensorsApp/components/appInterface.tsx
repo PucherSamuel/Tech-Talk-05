@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { SafeAreaView, StyleSheet, View, Pressable, Text, DeviceEventEmitter  } from 'react-native';
+import Accelerometer from "./accelerometer"
 
 const styles = StyleSheet.create({
     bottomBar: {
@@ -41,7 +42,7 @@ const AppInterface = () => {
     <SafeAreaView style={styles.container}>
         <View>
         {currentDisplay == 'Geschwindigkeit' ? (
-            <Text>Geschwindigkeit </Text>
+            <Accelerometer/>
         ) : (
             <Text>Applausometer </Text>
         )}
