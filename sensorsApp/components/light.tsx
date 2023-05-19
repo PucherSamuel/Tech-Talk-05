@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   text: {
-    fontSize: 100,
+    fontSize: 160,
   },
   textSmall: {
     fontSize: 20,
@@ -57,7 +57,6 @@ export default function Light() {
 
   return (
     <View style={styles.container}>
-      <Text>Light Sensor:</Text>
       <Text style={styles.text}>
         {Platform.OS === 'android' ? `${illuminance} lx` : `Only available on Android`}
       </Text>

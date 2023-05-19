@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   text: {
-    fontSize: 50,
+    fontSize: 90,
   },
   textSmall: {
     fontSize: 20,
