@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { SafeAreaView, StyleSheet, View, Pressable, Text, DeviceEventEmitter  } from 'react-native';
-import Accelerometer from "./accelerometer"
+import GyroscopeScreen from "./gyroscope"
+import Light from './light'
 
 const styles = StyleSheet.create({
     bottomBar: {
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
   });
 
 const AppInterface = () => {
-    const [currentDisplay, setCurrentDisplay] = useState('Geschwindigkeit');
+    const [currentDisplay, setCurrentDisplay] = useState('Gyroscope');
   
     const handlePress = (display: String) => () => {
       setCurrentDisplay(String(display))
@@ -41,25 +42,25 @@ const AppInterface = () => {
   return (
     <SafeAreaView style={styles.container}>
         <View>
-        {currentDisplay == 'Geschwindigkeit' ? (
-            <Accelerometer/>
-        ) : (
-            <Text>Applausometer </Text>
+        {currentDisplay == 'Gyroscope' ? (
+            <GyroscopeScreen/>
+        ) :(
+            <Light/>
         )}
         </View>
         <View style={styles.bottomBar}>
-            <Pressable style={styles.bottomButton} onPress={handlePress('Geschwindigkeit')}>
-                {currentDisplay == 'Geschwindigkeit' ? (  
-                    <Text style={[styles.buttonText, styles.activated]}>Geschwindigkeit</Text>
+            <Pressable style={styles.bottomButton} onPress={handlePress('Gyroscope')}>
+                {currentDisplay == 'Gyroscope' ? (  
+                    <Text style={[styles.buttonText, styles.activated]}>Gyroscope</Text>
                 ) : (
-                    <Text style={[styles.buttonText]}>Geschwindigkeit</Text>
+                    <Text style={[styles.buttonText]}>Gyroscope</Text>
                 )}
             </Pressable>
-            <Pressable style={styles.bottomButton} onPress={handlePress('Applausometer')}>
-                {currentDisplay == 'Applausometer' ? (  
-                    <Text style={[styles.buttonText, styles.activated]}>Applausometer</Text>
+            <Pressable style={styles.bottomButton} onPress={handlePress('Light')}>
+                {currentDisplay == 'Light' ? (  
+                    <Text style={[styles.buttonText, styles.activated]}>Light</Text>
                 ) : (
-                    <Text style={[styles.buttonText]}>Applausometer</Text>
+                    <Text style={[styles.buttonText]}>Light</Text>
                 )}
             </Pressable>
         </View>
